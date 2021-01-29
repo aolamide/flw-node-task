@@ -10,11 +10,13 @@ const validationController = (req, res) => {
   const validated = validateValues(condition, condition_value, field_value);
 
   let responseData = {
-    error : !validated,
-    field,
-    field_value,
-    condition,
-    condition_value
+    validation : {
+      error : !validated,
+      field,
+      field_value,
+      condition,
+      condition_value
+    }
   };
 
   //If validation is successful, return success response, else return error response
@@ -24,7 +26,7 @@ const validationController = (req, res) => {
   } 
   else {
     let response = responseObject('error', `field ${field} failed validation.`, responseData);
-    return res.json(response);
+    return res.status(400).json(response);
   }
 }
 

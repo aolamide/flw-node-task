@@ -1,7 +1,7 @@
 const express = require('express');
-const { responseObject, myDetails } = require('./helpers');
-const validationController = require('./validator.controller');
-const validateMiddleware = require('./validator.middleware');
+const { responseObject, myDetails } = require('./utils/helpers');
+const validationController = require('./utils/validator.controller');
+const validateMiddleware = require('./utils/validator.middleware');
 
 const app = express();
 
@@ -25,6 +25,8 @@ app.get('/', (req, res) => {
 
 app.post('/validate-rule', ...validateMiddleware, validationController);
 
-app.listen(PORT, () => {
-  console.log('Server listening on PORT ' + PORT)
+let server = app.listen(PORT, () => {
+  console.log('Server listening on PORT ' + PORT);
 });
+
+module.exports = server;

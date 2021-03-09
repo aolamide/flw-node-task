@@ -2,14 +2,14 @@
   "name": "rule-validation-api",
   "version": "0.0.1",
   "description": "Rule validation API",
-  "main": "index.js",
+  "main": "server.js",
   "engines": {
     "node": "12.x",
     "npm": "6.x"
   },
   "scripts": {
-    "dev": "nodemon index",
-    "start": "node index",
+    "dev": "nodemon server",
+    "start": "node server",
     "test": "mocha"
   },
   "author": "Olamide Aboyeji",
